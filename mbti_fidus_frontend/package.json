@@ -1,0 +1,31 @@
+{
+	"name": "mbti_fidus_frontend",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/fidus-dev/MBTI_Fidus",
+	"author": "Fidus",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/react": "^16.9.43",
+		"@types/react-dom": "^16.9.8",
+		"clean-webpack-plugin": "^3.0.0",
+		"css-loader": "^3.6.0",
+		"file-loader": "^6.0.0",
+		"html-webpack-plugin": "^4.3.0",
+		"source-map-loader": "^1.0.1",
+		"style-loader": "^1.2.1",
+		"ts-loader": "^8.0.0",
+		"typescript": "^3.9.6",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.11.0"
+	},
+	"dependencies": {
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
+	},
+	"scripts": {
+		"build": "npx webpack --config webpack.config.js",
+		"start": "webpack-dev-server --config webpack.config.js"
+	}
+}

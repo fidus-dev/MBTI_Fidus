@@ -8,7 +8,7 @@
 
 - Frontend
   - Webpack
-  - Babel
+  - Todo: Babel
   - React.js
   - Typescript
   - Todo: Redux

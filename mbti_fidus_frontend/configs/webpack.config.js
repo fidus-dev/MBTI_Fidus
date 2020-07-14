@@ -1,26 +1,27 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	mode: 'development',
-
 	devtool: 'inline-source-map',
-
 	entry: {
-		app: path.resolve(__dirname, 'src', 'index.tsx'),
+		app: path.resolve(__dirname, '../src', 'index.tsx'),
 	},
-
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, '../dist'),
 		filename: '[name].bundle.js',
 	},
-
+	resolve: {
+		extensions: ['.tsx', '.ts', '.js'],
+		plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
+	},
 	plugins: [
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
-			template: './public/index.html',
+			template: './src/index.html',
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'styles.css',
@@ -65,9 +66,5 @@ module.exports = {
 				use: ['file-loader'],
 			},
 		],
-	},
-
-	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
 	},
 };

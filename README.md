@@ -15,3 +15,8 @@
     - Todo: Saga
 
 - Backend
+  - Spring Boot
+  - Kotlin
+  - Gradle
+  - TODO: MySQL
+  - TODO: Tomcat

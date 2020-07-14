@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const DotenvWebpack = require('dotenv-webpack');
 
 module.exports = {
 	mode: 'development',
@@ -19,6 +20,7 @@ module.exports = {
 		plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
 	},
 	plugins: [
+		new DotenvWebpack(),
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
@@ -27,19 +29,6 @@ module.exports = {
 			filename: 'styles.css',
 		}),
 	],
-
-	devServer: {
-		host: '127.0.0.1',
-		port: 8000,
-		inline: true,
-		overlay: true,
-		historyApiFallback: true,
-		hot: true,
-		open: true,
-		compress: true,
-		contentBase: path.join(__dirname, 'public'),
-	},
-
 	module: {
 		rules: [
 			{
@@ -66,5 +55,16 @@ module.exports = {
 				use: ['file-loader'],
 			},
 		],
+	},
+	devServer: {
+		host: '127.0.0.1',
+		port: 8000,
+		inline: true,
+		overlay: true,
+		historyApiFallback: true,
+		hot: true,
+		open: true,
+		compress: true,
+		contentBase: path.join(__dirname, 'public'),
 	},
 };

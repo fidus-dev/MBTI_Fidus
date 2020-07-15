@@ -9,9 +9,9 @@ interface ItemProps {
     source: img
 }
 
-const Item: React.FC<ItemProps> = ({ img }) => {
+const Item: React.FC<ItemProps> = ({ source }) => {
     return (
-        
+        <img src={source} />
     );
 }
 

@@ -25,7 +25,8 @@
 	"dependencies": {
 		"dotenv-webpack": "^2.0.0",
 		"react": "^16.13.1",
-		"react-dom": "^16.13.1"
+		"react-dom": "^16.13.1",
+		"styled-components": "^5.1.1"
 	},
 	"scripts": {
 		"build": "npx webpack --config ./configs/webpack.config.js",

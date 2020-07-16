@@ -4,7 +4,7 @@ import CarouselTest from './components/CarouselTest';
 // CarouselTest 용 
 const App = () => {
 	return <div>
-		{/* <CarouselTest/>  */}
+		<CarouselTest/> 
 	</div>;
 };
 

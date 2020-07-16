@@ -9,9 +9,15 @@ interface ItemProps {
     source: img
 }
 
+const CarouselImg = styled.img`
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+`;
+
 const Item: React.FC<ItemProps> = ({ source }) => {
     return (
-        <img src={source} />
+        <CarouselImg src={source} draggable='false'/>
     );
 }
 

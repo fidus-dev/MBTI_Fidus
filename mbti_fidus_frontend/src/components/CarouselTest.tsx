@@ -3,13 +3,14 @@ import React, { FC } from 'react'
 import { img } from './Carousel/Carousel';
 import Carousel from './Carousel/Carousel';
 
-import black from '../static/black.jpg';
-import blue from '../static/blue.png';
-import green from '../static/green.png';
-import yellow from '../static/yellow.png';
-import red from '../static/red.jpg';
+import Item1 from '../static/Item1.jpg';
+import Item2 from '../static/Item2.jpg';
+import Item3 from '../static/Item3.jpg';
+import Item4 from '../static/Item4.jpg';
+import Item5 from '../static/Item5.jpg';
 
-const testArr: img[] = [black, blue, green, yellow, red];
+
+const testArr: img[] = [Item1, Item2, Item3, Item4, Item5];
 
 interface CarouselTestProps {
 
@@ -18,9 +19,9 @@ interface CarouselTestProps {
 const CarouselTest: React.FC<CarouselTestProps> = ({ }) => {
     return (
         <div style={{
-            display: 'flex',
             width: '100%',
-            height: '20rem;',
+            height: '200px',
+            overflow: 'hidden'
         }}>
             <Carousel imageArray={testArr} />
         </div>

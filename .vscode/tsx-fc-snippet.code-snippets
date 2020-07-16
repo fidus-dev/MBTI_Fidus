@@ -2,7 +2,7 @@
 	"fc": {
 		"scope": "typescriptreact",
 		"prefix":["fc"],
-		"body":["import React, { FC } from 'react'",
+		"body":["import React from 'react'",
 		"\ninterface ${TM_FILENAME/(.*)\\..+$/$1/}Props {",
 			"\t$1",
 		"}",

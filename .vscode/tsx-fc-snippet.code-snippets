@@ -1,0 +1,16 @@
+{
+	"fc": {
+		"scope": "typescriptreact",
+		"prefix":["fc"],
+		"body":["import React from 'react'",
+		"\ninterface ${TM_FILENAME/(.*)\\..+$/$1/}Props {",
+			"\t$1",
+		"}",
+		"\nconst ${TM_FILENAME/(.*)\\..+$/$1/}: React.FC<${TM_FILENAME/(.*)\\..+$/$1/}Props> = ({ $2 }) => {",
+			"\treturn (","\t\t$3","\t);",
+		"}",
+		"\nexport default ${TM_FILENAME/(.*)\\..+$/$1/};"
+		],
+		"description": "React Function Component in TypeScript Generation"
+	},
+}

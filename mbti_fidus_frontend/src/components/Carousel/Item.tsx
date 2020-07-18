@@ -6,18 +6,18 @@ const ItemStyle = styled.div``;
 
 
 interface ItemProps {
-    source: img
+    source: img;
+    width : string | number
 }
 
 const CarouselImg = styled.img`
-    width: 100%;
     object-fit: cover;
     object-position: 50% 50%;
 `;
 
-const Item: React.FC<ItemProps> = ({ source }) => {
+const Item: React.FC<ItemProps> = ({ source, width }) => {
     return (
-        <CarouselImg src={source} draggable='false'/>
+        <CarouselImg src={source} style={{width: width}} draggable='false'/>
     );
 }
 

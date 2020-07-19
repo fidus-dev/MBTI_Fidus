@@ -20,10 +20,10 @@ const CarouselTest: React.FC<CarouselTestProps> = ({ }) => {
     return (
         <div style={{
             width: '100%',
-            height: '300px',
+            height: '100%',
             overflow: 'hidden'
         }}>
-            <Carousel imageArray={testArr} />
+            <Carousel imageArray={testArr} imageRatio={4/3}/>
         </div>
     );
 }

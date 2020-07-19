@@ -1,11 +1,15 @@
-import * as React from 'react';
+import React, { FC } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import CarouselTest from './components/CarouselTest';
+import SurveyContainer from './containers/survey';
 
-// CarouselTest 용 
-const App = () => {
-	return <div>
-		<CarouselTest/> 
-	</div>;
+const App: FC = () => {
+	
+	return (
+		<Switch>
+			<Route exact path={'/'} component={SurveyContainer} />
+		</Switch>
+	)
 };
 
 export default App;

@@ -40,8 +40,12 @@ const Header = () => {
 	return (
 		<>
 			<HeaderBlock>
-				<Wrapper>래퍼</Wrapper>
+				<Wrapper>
+					<div className='logo'>MBTI_FIDUS</div>
+					<div className='right'>로그인</div>
+				</Wrapper>
 			</HeaderBlock>
+			<Spacer />
 		</>
 	);
 };

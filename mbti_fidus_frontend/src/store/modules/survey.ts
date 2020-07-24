@@ -1,6 +1,7 @@
 import { createAsyncAction, createReducer, ActionType } from 'typesafe-actions';
 import { FetchStatus } from '../../constants';
 
+
 //  types
 export enum SurveyFilter {
     default = 'default',
@@ -43,6 +44,7 @@ export interface SurveyState extends SurveyList, SurveyResultList {
     status: FetchStatus;
 }
 
+
 //  actionTypes
 export const GET_SURVEYLIST_REQUEST = 'GET_SURVEYLIST_REQUEST';
 export const GET_SURVEYLIST_SUCCESS = 'GET_SURVEYLIST_SUCCESS';
@@ -73,6 +75,7 @@ export const postSurvey = createAsyncAction(
 
 type GetSurveyListAction = ActionType<typeof getSurveyList>
 export type Action = GetSurveyListAction;
+
 
 //  reducers
 const initialState: SurveyState = {

@@ -9,7 +9,7 @@ type CircleType = {
 const RadiosBlock = styled.div`
     display: flex;
     width: 100%;
-    height: 200px;
+    height: 150px;
     border: 1px solid red;
     justify-content: center;
     align-items: center;

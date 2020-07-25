@@ -3,9 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import Survey from '../../components/survey';
 
 const SurveyContainer: FC = () => {
-    
+
     return (
-        <Survey />
+        <>
+            <Survey surveyType='radios' question='question1'/>
+            <Survey surveyType='bar' question='question2'/>
+        </>
     )
 }
 

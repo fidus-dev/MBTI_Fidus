@@ -36,12 +36,26 @@ const Spacer = styled.div`
 	height: 4rem;
 `;
 
+const Gnb = styled.div`
+	display: flex;
+	line-height: 4rem;
+
+	div + div {
+		margin-left: 3rem;
+	}
+`;
+
 const Header = () => {
 	return (
 		<>
 			<HeaderBlock>
 				<Wrapper>
 					<div className='logo'>MBTI_FIDUS</div>
+					<Gnb>
+						<div>Personality Types</div>
+						<div>Article & Surveys </div>
+						<div>Community</div>
+					</Gnb>
 					<div className='right'>로그인</div>
 				</Wrapper>
 			</HeaderBlock>

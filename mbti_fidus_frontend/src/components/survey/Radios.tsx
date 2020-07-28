@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { radioNum } from '../../constants/radios';
+import { radioNum } from '../../constants';
 
 type CircleType = {
     type: string;

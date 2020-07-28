@@ -1,22 +1,17 @@
 import { createAsyncAction, createReducer, ActionType } from 'typesafe-actions';
 import { FetchStatus } from '../../constants';
 
-
 //  types
-export enum SurveyFilter {
-    default = 'default',
-};
 
 export enum SurveyType {
     PERSONALITY = 'PERSONALITY',
     DATING = 'DATING',
 }
 
-export interface SurveyListParams {
+export interface GetSurveyListParams {
     type: SurveyType;
     page?: number;
     size?: number;
-    filter?: SurveyFilter;
 }
 
 export interface Survey {
@@ -25,16 +20,15 @@ export interface Survey {
 }
 
 export interface SurveyList {
-    list: Survey[];
+    surveyList: Survey[];
 }
 
-export interface SurveyResult {
-    text: string,
+export interface Result {
     value: number,
 }
 
-export interface SurveyResultList {
-    resultList: SurveyResult[];
+export interface ResultList {
+    resultList: Result[];
 }
 
 export enum SurveyAPI {
@@ -48,7 +42,7 @@ export interface ApiStatus {
 }
 
 //  omit 처리할 것
-export interface SurveyState extends SurveyList, SurveyResultList {
+export interface SurveyState extends SurveyList, ResultList {
     type: SurveyType;
     apiStatus: ApiStatus;
 }
@@ -59,9 +53,9 @@ export const GET_SURVEYLIST_REQUEST = 'GET_SURVEYLIST_REQUEST';
 export const GET_SURVEYLIST_SUCCESS = 'GET_SURVEYLIST_SUCCESS';
 export const GET_SURVEYLIST_FAILURE = 'GET_SURVEYLIST_FAILURE';
 
-export const POST_SURVEY_REQUEST = 'POST_SURVEY_REQUEST';
-export const POST_SURVEY_SUCCESS = 'POST_SURVEY_SUCCESS';
-export const POST_SURVEY_FAILURE = 'POST_SURVEY_FAILURE';
+export const POST_RESULTLIST_REQUEST = 'POST_RESULTLIST_REQUEST';
+export const POST_RESULTLIST_SUCCESS = 'POST_RESULTLIST_SUCCESS';
+export const POST_RESULTLIST_FAILURE = 'POST_RESULTLIST_FAILURE';
 
 
 //  actionCreators
@@ -69,23 +63,23 @@ export const getSurveyList = createAsyncAction(
     GET_SURVEYLIST_REQUEST,
     GET_SURVEYLIST_SUCCESS,
     GET_SURVEYLIST_FAILURE,
-)<SurveyListParams, SurveyList, undefined>();
+)<GetSurveyListParams, SurveyList, undefined>();
 
-export const postSurvey = createAsyncAction(
-    POST_SURVEY_REQUEST,
-    POST_SURVEY_SUCCESS,
-    POST_SURVEY_FAILURE,
-)<SurveyResultList, undefined, undefined>();
+export const postResultList = createAsyncAction(
+    POST_RESULTLIST_REQUEST,
+    POST_RESULTLIST_SUCCESS,
+    POST_RESULTLIST_FAILURE,
+)<ResultList, undefined, undefined>();
 
 
 type GetSurveyListAction = ActionType<typeof getSurveyList>
-type PostSurveyAction = ActionType<typeof postSurvey>
-export type SurveyAction = GetSurveyListAction | PostSurveyAction;
+type PostResultListAction = ActionType<typeof postResultList>
+export type SurveyAction = GetSurveyListAction | PostResultListAction;
 
 
 //  reducers
 const initialState: SurveyState = {
-    list: [],
+    surveyList: [],
     resultList: [],
     apiStatus: {},
     type: undefined,
@@ -99,13 +93,13 @@ const surveyReducer = createReducer<SurveyState, SurveyAction>(initialState, {
             [SurveyAPI.getSurveyList]: FetchStatus.FETCHING,
         }
     }),
-    [GET_SURVEYLIST_SUCCESS]: (state, { payload: { list }}) => ({
+    [GET_SURVEYLIST_SUCCESS]: (state, { payload: { surveyList }}) => ({
         ...state,
         apiStatus: {
             ...state.apiStatus,
             [SurveyAPI.getSurveyList]: FetchStatus.SUCCESS,
         },
-        listg: [ ...state.list, ...list ],
+        listg: [ ...state.surveyList, ...surveyList ],
     }),
     [GET_SURVEYLIST_FAILURE]: state => ({
         ...state,
@@ -114,21 +108,21 @@ const surveyReducer = createReducer<SurveyState, SurveyAction>(initialState, {
             [SurveyAPI.getSurveyList]: FetchStatus.FAILURE,
         },
     }),
-    [POST_SURVEY_REQUEST]: state => ({
+    [POST_RESULTLIST_REQUEST]: state => ({
         ...state,
         apiStatus: {
             ...state.apiStatus,
             [SurveyAPI.postResultList]: FetchStatus.FETCHING,
         }
     }),
-    [POST_SURVEY_SUCCESS]: state => ({
+    [POST_RESULTLIST_SUCCESS]: state => ({
         ...state,
         apiStatus: {
             ...state.apiStatus,
             [SurveyAPI.postResultList]: FetchStatus.SUCCESS,
         },
     }),
-    [POST_SURVEY_FAILURE]: state => ({
+    [POST_RESULTLIST_FAILURE]: state => ({
         ...state,
         apiStatus: {
             ...state.apiStatus,
@@ -140,5 +134,4 @@ const surveyReducer = createReducer<SurveyState, SurveyAction>(initialState, {
 export default surveyReducer;
 
 //  selectors
-
 

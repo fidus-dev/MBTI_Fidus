@@ -1,4 +1,5 @@
-import { createAsyncAction, createReducer, ActionType } from 'typesafe-actions';
+import { createAsyncAction, createReducer, ActionType, RootState } from 'typesafe-actions';
+import { createSelector } from 'reselect';
 import { FetchStatus } from '../../constants';
 
 //  types
@@ -135,3 +136,6 @@ export default surveyReducer;
 
 //  selectors
 
+export const selectSurveyList = (state: RootState) => state.surveyReducer.surveyList;
+export const selectApiStatus = (state: RootState) => state.surveyReducer.apiStatus;
+export const selectType = (state: RootState) => state.surveyReducer.type;

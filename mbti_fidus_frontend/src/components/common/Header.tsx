@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Responsive from './Responsive';
+import { FiMenu } from 'react-icons/fi';
 
 const HeaderBlock = styled.div`
 	position: fixed;
@@ -17,14 +18,26 @@ const Wrapper = styled(Responsive)`
 	display: flex;
 	align-items: center;
 	justify-content: space-between; /* 자식 엘리먼트 사이 여백 최대 설정 */
+
 	.logo {
 		font-size: 1.125rem;
 		font-weight: 800;
 		letter-spacing: 2px;
 	}
+
 	.right {
 		display: flex;
 		align-items: center;
+		@media (max-width: 768px) {
+			display: none;
+		}
+	}
+
+	.right-menu {
+		display: none;
+		@media (max-width: 768px) {
+			display: block;
+		}
 	}
 `;
 
@@ -36,14 +49,78 @@ const Spacer = styled.div`
 	height: 4rem;
 `;
 
+const Gnb = styled.div`
+	display: flex;
+	line-height: 4rem;
+
+	div + div {
+		margin-left: 3rem;
+	}
+
+	/* 브라우저 크기에 따라 렌더 유무 변경 */
+	@media (max-width: 768px) {
+		display: none;
+	}
+`;
+
+const DropdownMenu = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const CollapsedMenu = styled.div``;
+
 const Header = () => {
+	const navigations = (
+		<>
+			<Gnb>
+				{Header.MeuList.map((menu: MenuListType) => (
+					<div>{menu.title}</div>
+				))}
+			</Gnb>
+			<div className="right">로그인</div>
+		</>
+	);
+
 	return (
 		<>
 			<HeaderBlock>
-				<Wrapper>래퍼</Wrapper>
+				<Wrapper>
+					<div className="logo">MBTI_FIDUS</div>
+					{navigations}
+					<div className="right-menu">
+						<FiMenu fontSize="2rem" />
+					</div>
+				</Wrapper>
+				<CollapsedMenu>{navigations}</CollapsedMenu>
 			</HeaderBlock>
+			<Spacer />
 		</>
 	);
 };
 
 export default Header;
+
+type MenuListType = {
+	key: string;
+	title: string;
+	link: string;
+};
+
+Header.MeuList = [
+	{
+		key: 'personalityTypes',
+		title: 'Personality Types',
+		link: '',
+	},
+	{
+		key: 'articleAndSurveys',
+		title: 'Article & Surveys',
+		link: '',
+	},
+	{
+		key: 'community',
+		title: 'Community',
+		link: '',
+	},
+];

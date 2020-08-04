@@ -3,11 +3,15 @@ import { Switch, Route } from 'react-router-dom';
 import CarouselTest from './components/CarouselTest';
 import SurveyContainer from './containers/survey';
 import EntryPage from './pages/Anonymous/EntryPage';
+import MainPage from './pages/MainPage';
+
 const App: FC = () => {
 	
 	return (
 		<Switch>
 			<Route exact path={'/'} component={EntryPage} />
+			<Route exact path={'/survey'} component={SurveyContainer} />
+			{/* <Route exact path={'/'} component={MainPage} /> */}
 		</Switch>
 	)
 };

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import surveyReducer from './surveyReducer';
+import surveyReducer from './survey';
 
 const rootReducer = combineReducers({
     surveyReducer,

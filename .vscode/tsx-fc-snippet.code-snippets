@@ -3,6 +3,7 @@
 		"scope": "typescriptreact",
 		"prefix":["fc"],
 		"body":["import React from 'react'",
+		"import styled, { css } from 'styled-components';",
 		"\ninterface ${TM_FILENAME/(.*)\\..+$/$1/}Props {",
 			"\t$1",
 		"}",

@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import BoardList from '../../components/Anonymous/boardList';
 import SearchBar from '../../components/Anonymous/SearchBar';
-
+import { entryTableBodyRowItems, entryTableHeaderItem } from '../../test/Anonymous/entryTableItem';
 const WrapperDiv = styled.div`
     margin: auto;
-    width: 1000px;
-    height: 1000px;
+    width: 700px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     `;
@@ -16,10 +16,11 @@ interface EntryPageProps {
 }
 
 const EntryPage: React.FC<EntryPageProps> = ({ }) => {
+
     return (
         <WrapperDiv>
-            <BoardList/>
-            <SearchBar/>
+            <BoardList headerItem={entryTableHeaderItem} bodyItem={entryTableBodyRowItems}/>
+            <SearchBar />
         </WrapperDiv>
     );
 }

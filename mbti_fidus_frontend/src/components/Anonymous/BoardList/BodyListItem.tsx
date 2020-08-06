@@ -22,6 +22,9 @@ const ItemDiv = styled.div<ItemDivProps>`
     &::-webkit-scrollbar {
         display:none;
     }
+    & + & {
+        border-left: 1px dashed black;
+    }
     justify-content: ${props => props.justifyContent || 'center'};
     padding: 5px;
     width : ${props => props.width || '30%'};

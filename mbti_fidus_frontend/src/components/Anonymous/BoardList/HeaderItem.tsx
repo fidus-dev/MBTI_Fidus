@@ -7,6 +7,9 @@ const HeaderDiv = styled.div`
     align-content: center;
     justify-content: center;
     overflow: auto;
+    & + & {
+        border-left: 1px dashed black; 
+    }
     &::-webkit-scrollbar {
         display: none;
     }

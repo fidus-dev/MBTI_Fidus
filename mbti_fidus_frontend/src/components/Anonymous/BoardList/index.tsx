@@ -5,25 +5,21 @@ import { IHeaderCell, IBodyCell, IBodyRow } from './interfaces';
 import HeaderItem from './HeaderItem';
 import SearchBar from '../SearchBar';
 
-const BoardWrapperDiv = styled.div`
-    width : 100%;
-    height: 100%;
+const BoardWrapperDiv = styled.div<styleProps>`
+    width : ${(props: styleProps) => props.width || '100%'};
+    height: ${(props: styleProps) => props.height || '100%'};
     display:flex;
     flex-direction: column;
     box-sizing: border-box;
     box-shadow: 1px 1px 10px 0px rgba(5,5,5,0.16);
 `;
 
-const SearchBarWarpperDiv = styled.div`
-    margin: 0 auto 0 auto;
-    width: 90%;
-    height: 5%;
-`;
-
 const TitleDiv = styled.div`
     width: auto;
     margin: 0 auto 0 auto;
     height: 10%;
+    font-size: 2rem;
+    font-weight: bold;
 `;
 
 const UpperHR = styled.hr`
@@ -31,6 +27,7 @@ const UpperHR = styled.hr`
 `;
 
 const HeaderDiv = styled.div`
+    height: 10%;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -43,6 +40,7 @@ const TableDiv = styled.div`
     flex-direction: column;
     white-space: nowrap;
     width: 90%;
+    height: 70%;
 `;
 
 const BodyListDiv = styled.div`
@@ -54,16 +52,27 @@ const BodyListDiv = styled.div`
     box-shadow: 1px 1px 10px 0px rgba(5,5,5,0.16);
 `;
 
+const SearchBarWrapperDiv = styled.div`
+    width: 90%;
+    height: 5%;
+    margin: 10px auto 0 auto;    
+`;
+interface styleProps {
+    width?: string;
+    height?: string;
+}
 interface boardListProps {
     headerItem: IHeaderCell[];
     bodyItem: IBodyRow<IBodyCell>[];
     boardName: string;
+    width?: string;
+    height?: string;
 }
 
-const BoardList: React.FC<boardListProps> = ({ headerItem, bodyItem, boardName }) => {
+const BoardList: React.FC<boardListProps> = ({ headerItem, bodyItem, boardName, width, height }) => {
     return (
-        <BoardWrapperDiv>
-            <TitleDiv><h3>{boardName}</h3></TitleDiv>
+        <BoardWrapperDiv width={width} height={height}>
+            <TitleDiv>{boardName}</TitleDiv>
             <UpperHR />
             <TableDiv>
                 <HeaderDiv>
@@ -73,9 +82,9 @@ const BoardList: React.FC<boardListProps> = ({ headerItem, bodyItem, boardName }
                     {bodyItem.map((items, idx) => <BodyListItem key={idx} items={items} headerInfo={headerItem} />)}
                 </BodyListDiv>
             </TableDiv>
-            <SearchBarWarpperDiv>
-                <SearchBar category={headerItem}></SearchBar>
-            </SearchBarWarpperDiv>
+            <SearchBarWrapperDiv>
+                <SearchBar category={headerItem} height={'100%'} width={'100%'}></SearchBar>
+            </SearchBarWrapperDiv>
         </BoardWrapperDiv>
     );
 }

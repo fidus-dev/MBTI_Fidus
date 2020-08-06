@@ -6,7 +6,10 @@ const HeaderDiv = styled.div`
     display:flex;
     align-content: center;
     justify-content: center;
+    align-items: center;
     overflow: auto;
+    font-size: 1 rem;
+    font-weight: bold; 
     & + & {
         border-left: 1px dashed black; 
     }
@@ -23,7 +26,7 @@ interface HeaderItemProps {
 
 const HeaderItem: React.FC<HeaderItemProps> = ({ item }) => {
     return (
-        <HeaderDiv item={item}><h3>{item.label}</h3></HeaderDiv>
+        <HeaderDiv item={item}>{item.label}</HeaderDiv>
     );
 }
 

@@ -1,4 +1,4 @@
-import { IHeaderCell, IBodyCell, IBodyRow } from '../../components/Anonymous/interfaces';
+import { IHeaderCell, IBodyCell, IBodyRow } from '../../components/Anonymous/BoardList/interfaces';
 
 export const entryTableHeaderItem: IHeaderCell[] = [
     {

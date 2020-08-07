@@ -148,5 +148,149 @@ export const entryTableBodyRowItems: IBodyRow<IBodyCell>[] = [
                 value: '2020-07-28'
             }
         ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
+    },
+    {
+        item: [
+            {
+                id: 'title',
+                value: '식물갤'
+            },
+            {
+                id: 'popularity',
+                value: '12345'
+            },
+            {
+                id: 'updated',
+                value: '2020-07-28'
+            }
+        ]
     }
 ];

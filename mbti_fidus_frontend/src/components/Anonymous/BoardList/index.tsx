@@ -51,8 +51,8 @@ const BodyListDiv = styled.div`
     flex-direction: column;
     margin-top: 10px;
     overflow: auto;
-    &:-webkit-scrollbar {
-        display: hidden;
+    &::-webkit-scrollbar {
+        display: none;
     }
     box-shadow: 1px 1px 10px 0px rgba(5,5,5,0.16);
 `;

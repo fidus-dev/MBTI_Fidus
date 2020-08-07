@@ -35,6 +35,7 @@ const SearchButton = styled.button`
     background-color: RGB(245, 245, 245);
     &:hover {
         background: radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(215,240,255,1) 100%);
+        cursor: pointer;
     }
     &:focus {
         outline: 1px solid lightskyblue

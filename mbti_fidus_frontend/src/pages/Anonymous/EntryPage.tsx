@@ -22,6 +22,7 @@ const CreateNewBoardButtonDiv = styled.div`
     font-size: 2rem;
     &:hover {
         background: radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(215,240,255,1) 100%);
+        cursor: pointer;
     }
 `;
 interface EntryPageProps {

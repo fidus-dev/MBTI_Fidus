@@ -4,6 +4,7 @@ import BodyListItem from './BodyListItem';
 import { IHeaderCell, IBodyCell, IBodyRow } from './interfaces';
 import HeaderItem from './HeaderItem';
 import SearchBar from '../SearchBar';
+import Pagination from '../Pagination';
 
 const BoardWrapperDiv = styled.div<styleProps>`
     width : ${(props: styleProps) => props.width || '100%'};
@@ -49,8 +50,18 @@ const BodyListDiv = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    overflow: auto;
+    &:-webkit-scrollbar {
+        display: hidden;
+    }
     box-shadow: 1px 1px 10px 0px rgba(5,5,5,0.16);
 `;
+
+const PaginationWrapper = styled.div`
+    width: 100px;
+    height: 5%;
+    margin: 10px auto 0 auto;
+    `;
 
 const SearchBarWrapperDiv = styled.div`
     width: 90%;
@@ -85,6 +96,9 @@ const BoardList: React.FC<boardListProps> = ({ headerItem, bodyItem, boardName, 
             <SearchBarWrapperDiv>
                 <SearchBar category={headerItem} height={'100%'} width={'100%'}></SearchBar>
             </SearchBarWrapperDiv>
+            <PaginationWrapper>
+                <Pagination pageIdx={1}/>
+            </PaginationWrapper>
         </BoardWrapperDiv>
     );
 }

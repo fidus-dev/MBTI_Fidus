@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import CarouselTest from './components/CarouselTest';
 import SurveyContainer from './containers/survey';
 import EntryPage from './pages/Anonymous/EntryPage';
+import SubjectBoard from './pages/Anonymous/SubjectBoard';
 import MainPage from './pages/MainPage';
 
 const App: FC = () => {
@@ -12,6 +13,7 @@ const App: FC = () => {
 			<Route exact path={'/'} component={EntryPage} />
 			<Route exact path={'/survey'} component={SurveyContainer} />
 			{/* <Route exact path={'/'} component={MainPage} /> */}
+			<Route exact path={'/board'} component={SubjectBoard}/>
 		</Switch>
 	)
 };

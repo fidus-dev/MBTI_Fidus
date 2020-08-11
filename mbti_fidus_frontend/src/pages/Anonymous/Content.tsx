@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
 import Article from '../../components/Anonymous/Article';
+
 const WrapperDiv = styled.div`
     margin: 50px auto 0 auto;
     display: flex;

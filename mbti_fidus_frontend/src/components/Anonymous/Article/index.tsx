@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { IoIosArrowBack } from 'react-icons/io';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdNotificationsNone } from 'react-icons/md';
+import Comment from '../Comment';
 
 const WrapperDiv = styled.div<StyleProps>`
     width : ${(props: StyleProps) => props.width || '100%'};
@@ -66,10 +67,19 @@ const ContentDiv = styled.div`
     height: 60%;
     width: 95%;
     margin: 10px auto 0 auto;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    font-size: 0.7rem;
+    font-family: arial;
     box-shadow: 1px 1px 10px 0px rgba(5,5,5,0.16);
+`;
+
+const CommentWrapperDiv = styled.div`
+    height: 25%;
+    width: 95%;
+    margin: 10px auto 0 auto;
 `;
 const iconStyle = { backgroundColor: 'transparent', width: '80%', height: '80%' };
 
@@ -102,6 +112,9 @@ const Article: React.FC<ArticleProps> = ({ title, text }) => {
                 </MenuDiv>
             </InformBarDiv>
             <ContentDiv>{text}</ContentDiv>
+            <CommentWrapperDiv>
+                <Comment></Comment>
+            </CommentWrapperDiv>
         </WrapperDiv>
     );
 }

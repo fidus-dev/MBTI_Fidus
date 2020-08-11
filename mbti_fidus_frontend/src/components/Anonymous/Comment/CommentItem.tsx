@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
 import { CommentItem } from './interfaces';
-import { MdSubdirectoryArrowRight } from 'react-icons/md';
+import { MdSubdirectoryArrowRight, MdNotificationsNone } from 'react-icons/md';
 import getConfig from './CommentConfig';
 
 
@@ -47,7 +47,7 @@ const CommentItem: React.FC<CommentItemProps> = ({ width, height, comment }) => 
             {comment.depth !== 0 && <MdSubdirectoryArrowRight style={{ ...iconStyle, padding: 20 * comment.depth + 'px' }} />}
             <ItemDiv>{comment.id}</ItemDiv>
             <ItemDiv>{comment.content}</ItemDiv>
-            { whistleBlow && null}
+            { whistleBlow && <MdNotificationsNone style={{...iconStyle}}/>}
         </WrapperDiv>
     );
 }

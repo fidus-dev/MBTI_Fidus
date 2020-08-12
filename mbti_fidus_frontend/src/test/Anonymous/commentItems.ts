@@ -1,6 +1,6 @@
-import { CommentItem } from "src/components/Anonymous/Comment/interfaces";
+import { IcommentItem } from "src/components/Anonymous/Comment/interfaces";
 
-export const testItem: CommentItem[] = [
+const testItem: IcommentItem[] = [
     {
         id: 'commenter',
         content: 'ipsum lorem is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
@@ -43,3 +43,5 @@ export const testItem: CommentItem[] = [
     },
 
 ]
+
+export default testItem;

@@ -1,4 +1,4 @@
-export interface CommentItem {
+export interface IcommentItem {
     id: string;
     content: string;
     depth: 0 | 1 | 2;

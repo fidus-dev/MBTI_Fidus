@@ -1,5 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
+import { IcommentItem } from './interfaces';
+import CommentItem from './CommentItem';
 
 
 const WrapperDiv = styled.div<StyleProps>`
@@ -19,11 +21,14 @@ interface StyleProps {
 interface CommentProps {
     width?: string;
     height?: string;
+    comments: IcommentItem[]
 }
 
-const Comment: React.FC<CommentProps> = ({ width, height }) => {
+const Comment: React.FC<CommentProps> = ({ width, height, comments }) => {
     return (
-        <WrapperDiv width={width} height={height}></WrapperDiv>
+        <WrapperDiv width={width} height={height}>
+            {comments && comments.map(comment => <CommentItem comment={comment}></CommentItem>)}
+        </WrapperDiv>
     );
 }
 

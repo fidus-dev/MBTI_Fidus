@@ -4,6 +4,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdNotificationsNone } from 'react-icons/md';
 import Comment from '../Comment';
+import testItem from '../../../test/Anonymous/commentItems';
 
 const WrapperDiv = styled.div<StyleProps>`
     width : ${(props: StyleProps) => props.width || '100%'};
@@ -113,7 +114,7 @@ const Article: React.FC<ArticleProps> = ({ title, text }) => {
             </InformBarDiv>
             <ContentDiv>{text}</ContentDiv>
             <CommentWrapperDiv>
-                <Comment></Comment>
+                <Comment comments={testItem}></Comment>
             </CommentWrapperDiv>
         </WrapperDiv>
     );

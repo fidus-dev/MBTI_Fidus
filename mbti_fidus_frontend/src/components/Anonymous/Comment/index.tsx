@@ -27,7 +27,7 @@ interface CommentProps {
 const Comment: React.FC<CommentProps> = ({ width, height, comments }) => {
     return (
         <WrapperDiv width={width} height={height}>
-            {comments && comments.map(comment => <CommentItem comment={comment}></CommentItem>)}
+            {comments && comments.map(comment => <CommentItem width={'100%'} height={'auto'} comment={comment}></CommentItem>)}
         </WrapperDiv>
     );
 }

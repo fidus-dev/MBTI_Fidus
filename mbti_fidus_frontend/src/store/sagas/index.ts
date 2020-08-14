@@ -1,8 +1,9 @@
 import { all, takeEvery, takeLeading, takeLatest } from 'redux-saga/effects';
-import {} from './surveySaga';
+import surveySaga from './surveySaga';
+import {} from '../modules/survey';
 
 export default function* rootSaga() {
     yield all([
-        // takeEvery()
+        takeEvery('',surveySaga),
     ]);
 }

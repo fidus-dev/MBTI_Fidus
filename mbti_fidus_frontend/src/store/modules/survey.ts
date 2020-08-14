@@ -3,7 +3,6 @@ import { createSelector } from 'reselect';
 import { FetchStatus } from '../../constants';
 
 //  types
-
 export enum SurveyType {
     PERSONALITY = 'PERSONALITY',
     DATING = 'DATING',

@@ -1,9 +1,9 @@
 const Router = require('koa-router');
+const board = require('./Board');
 
 const api = new Router();
-const books = require('./books');
 
-api.use('/books', books.routes());
+api.use('/Board', board.routes());
 
 module.exports = api;
 

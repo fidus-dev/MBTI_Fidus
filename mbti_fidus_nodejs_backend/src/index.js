@@ -4,14 +4,16 @@ const Koa = require('koa');
 const cors = require('@koa/cors');
 const koaBody = require('koa-body');
 const logger = require('koa-logger');
-const _router = require('./router');
+const Router = require('koa-router');
 const sequelize = require('./db/models').sequelize;
+const api = require('./api');
 
 const port = process.env.PORT || 4000;
 
 const run = async () => {
     const app = new Koa();
-    const router = _router(_router);
+    const router = new Router();
+    router.use('/api', api.routes());
     app.use(cors());
     app.use(logger);
     app.use(koaBody());

@@ -11,7 +11,10 @@ const SurveyContainer: FC = () => {
     }, []);
 
     return (
-        <Survey />
+        <>
+            <Survey surveyType='radios' question='question1'/>
+            <Survey surveyType='bar' question='question2'/>
+        </>
     )
 }
 

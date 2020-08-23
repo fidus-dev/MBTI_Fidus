@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { radioNum } from '../../constants';
 
@@ -9,7 +9,7 @@ type CircleType = {
 const RadiosBlock = styled.div`
     display: flex;
     width: 100%;
-    height: 200px;
+    height: 150px;
     border: 1px solid red;
     justify-content: center;
     align-items: center;
@@ -47,23 +47,55 @@ const CircleBlock = styled.div<CircleType>`
 
 const Radios: FC = () => {
     const bundle = [];
-    for(let i=0; i<radioNum; ++i) {
-        const size = Math.abs(Math.ceil(i-radioNum/2)) * 10 + 40;
-        const type = i === Math.floor(radioNum/2) ? 'center' : (i > Math.floor(radioNum/2) ? 'right' : 'left');
+    const [surveyValue, setSurveyValue] = useState<number>(null);
+    const onClickHandler = useCallback((event: React.MouseEvent) => {
+        const target = event.target as HTMLElement;
+        const container = target.parentElement;
+        const siblings = container.children;
+        for (let i = 0; i < siblings.length; i++) {
+            if (siblings.length !== radioNum) {
+                break;
+            }
+            if (target === siblings[i]) {
+                setSurveyValue(i);
+                break;
+            }
+        }
+    }, [surveyValue]);
+
+    for (let i = 0; i < radioNum; ++i) {
+        const size = Math.abs(Math.ceil(i - radioNum / 2)) * 10 + 40;
+        const type = i === Math.floor(radioNum / 2) ? 'center' : (i > Math.floor(radioNum / 2) ? 'right' : 'left');
+        const defaultStyle = {
+            width: size,
+            height: size,
+            backgroundColor: 'none'
+        };
+        if (i === surveyValue) {
+            if (type === 'left') {
+                defaultStyle.backgroundColor = 'green';
+            } else if (type === 'center') {
+                defaultStyle.backgroundColor = 'black';
+            } else if (type === 'right') {
+                defaultStyle.backgroundColor = 'red';
+            }
+        } else {
+            delete defaultStyle.backgroundColor;
+        }
+
         bundle.push(
             <CircleBlock
                 key={`circle_${i}`}
                 type={type}
-                style={{
-                    width: size,
-                    height: size,
-                }}
+                style={{...defaultStyle}}
             />
         )
     }
 
+
+
     return (
-        <RadiosBlock>
+        <RadiosBlock onClick={onClickHandler}>
             {bundle}
         </RadiosBlock>
     )

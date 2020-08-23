@@ -1,0 +1,28 @@
+{
+    "name": "anonymous_backend_server",
+    "version": "1.0.0",
+    "description": "\"Anonymous backend server: node.js + koa + sequelize + MySql \"",
+    "main": "index.js",
+    "repository": "https://github.com/fidus-dev/MBTI_Fidus",
+    "author": "HoseungShin <nwdt3309@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@koa/cors": "^3.1.0",
+        "cross-env": "^7.0.2",
+        "dotenv": "^8.2.0",
+        "joi": "^17.2.0",
+        "koa": "^2.13.0",
+        "koa-body": "^4.1.0",
+        "koa-bodyparser": "^4.3.0",
+        "koa-logger": "^3.2.0",
+        "koa-router": "^9.1.0",
+        "mysql2": "^2.0.2",
+        "nodemon": "^2.0.4",
+        "sequelize": "^5.21.3",
+        "uuid": "8.2.0"
+    },
+    "scripts": {
+        "start": "cross-env NODE_PATH=src node src",
+        "start:dev": "cross-env NODE_PATH=src nodemon --watch src/ src/index.js"
+    }
+}
